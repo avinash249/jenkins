@@ -8,4 +8,9 @@ pipeline {
             }
         }
     }
+    post {
+        failure {
+            emailext body: 'Sample', subject: 'Pipeline status', to: 'asreekakarlapudi@gmail.com'
+        }
+    }
 }

@@ -9,7 +9,7 @@ pipeline {
         }
     }
     post {
-        failure {
+        always {
             emailext body: 'Sample', subject: 'Pipeline status', to: 'asreekakarlapudi@gmail.com'
         }
     }

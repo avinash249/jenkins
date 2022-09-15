@@ -1,0 +1,19 @@
+node{
+    stage('Maven Version check'){
+        script{
+            'mvn -v'
+        }
+    }
+
+    stage('Maven Clean'){
+        script{
+            'maven clean'
+        }
+    }
+
+    stage('Maven Test'){
+        script{
+            'maven test'
+        }
+    }
+}

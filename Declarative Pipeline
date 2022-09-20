@@ -1,0 +1,10 @@
+Pipeline{
+    agent{
+        docker{ image 'node:16.3.1-alpine'}
+    }
+    stages{
+        steps{
+            sh 'node --version'
+        }
+    }
+}

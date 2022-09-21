@@ -9,3 +9,4 @@ metadata:
 handler: myconfiguration 
 spec:
   runtimeClassName: myclass
+

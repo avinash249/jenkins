@@ -1,6 +1,8 @@
+param location string = 'eastus2'
+param adminUserName string = 'avinash'
 resource aksCluster 'Microsoft.ContainerService/managedClusters@2021-03-01' = {
   name: 'name'
-  location: ''
+  location: location
   identity: {
     type: 'SystemAssigned'
   }
@@ -18,7 +20,7 @@ resource aksCluster 'Microsoft.ContainerService/managedClusters@2021-03-01' = {
       }
     ]
     linuxProfile: {
-      adminUsername: 'adminUserName'
+      adminUsername: adminUserName
       ssh: {
         publicKeys: [
           {

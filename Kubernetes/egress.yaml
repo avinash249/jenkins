@@ -1,0 +1,14 @@
+apiVersion: network.openshift.io/v1
+kind: EgressNetworkPolicy
+metadata:
+  name: default
+  namespace: <namespace> 
+spec:
+  egress:
+  - to:
+      cidrSelector: <api_server_address_range> 
+    type: Allow
+# ...
+  - to:
+      cidrSelector: 0.0.0.0/0 
+    type: Deny

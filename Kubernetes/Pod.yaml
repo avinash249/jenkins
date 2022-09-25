@@ -1,0 +1,15 @@
+apiVersion: V1
+kind: Pod
+metadata:
+    name: pod-name
+spec:
+    containers:
+      -name: ngnix
+      image: ngnix-latest
+      ports:
+        -container-port: 80
+    volumes:
+      -name: foo
+      secret:
+        secretName: test
+        

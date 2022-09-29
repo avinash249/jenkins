@@ -1,0 +1,16 @@
+Pipeline{
+    agent 'any'
+
+    stages{
+        stage('test'){
+            steps{
+                sh 'node --version'
+            }
+        }
+        stage('clean'){
+            steps{
+                sh 'node --help'
+            }
+        }
+    }
+}

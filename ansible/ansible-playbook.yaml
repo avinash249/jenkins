@@ -1,12 +1,14 @@
 --
--name : sample-book
+-name: Sample book
  hosts: ansible_cluster
  remote_user: root
  become: true
  stages:
-    -name: HTTPD
-     yum:
-        -name: install httpd
-        state: latest
+   -name: HTTPD
+    yum: 
+      -name: install httpd
+      state: latest
+
+
 
  

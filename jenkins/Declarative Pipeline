@@ -1,16 +1,28 @@
-Pipeline{
-    agent 'any'
-
+pipeline {
+    agent any
     stages{
-        stage('test'){
+        stage('Compile Stage'){
             steps{
-                sh 'node --version'
+                withMaven(maven: 'maven_3.5.6'){
+                    sh 'maven clean complie'
+                }
+                
             }
         }
-        stage('clean'){
+        stage('Test Stage'){
             steps{
-                sh 'node --help'
+                withMaven(maven: 'maven_3.5.6'){
+                    sh 'maven test'
+                }
+            }
+        }
+        stage('Deploy Stage'){
+            steps{
+                withMaven(maven: 'maven_3.5.6'){
+                    sh 'maven deploy'
+                }
             }
         }
     }
+    
 }

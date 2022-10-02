@@ -1,12 +1,11 @@
-pipeline {
+pipeline{
     agent any
     stages{
-        stage('Compile Stage'){
+        stage('Complie Stage'){
             steps{
                 withMaven(maven: 'maven_3.5.6'){
                     sh 'maven clean complie'
                 }
-                
             }
         }
         stage('Test Stage'){
@@ -24,5 +23,4 @@ pipeline {
             }
         }
     }
-    
 }

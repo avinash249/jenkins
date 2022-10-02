@@ -1,12 +1,13 @@
 apiVersion: V1
-kind: pod
+kind: Pod
 metadata: 
   name: ngnix
-spec:
-  container:
-    name: ngnix
-    image: ngnix-latest
+specs:
+  containers:
+    name: nginx
+    image: latest
   ports:
-    -containerport:
-      number: 80
+    -containerport: 80
+    
+
         

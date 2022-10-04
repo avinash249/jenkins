@@ -19,8 +19,11 @@ spec:
         image: nginx:1.14.2
         ports:
         - containerPort: 80
+        volumeMounts:
+        - mountPath: /test-ebs
+          name: test-volume
       volumes:
-        -name: foo
+        -name: test-volume
         secret:
           secretName: prod-db-secret
           

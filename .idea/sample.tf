@@ -1,6 +1,6 @@
 terraform {
   required_verion = ">= 1.0.0"
-  required_providers = {
+  reuired_providers = {
     azurerm = {
         source = "hashicorp/azurerm"
         version = ">= 2.0"
@@ -9,22 +9,24 @@ terraform {
   backend "azurerm" {
     resource_group_name = "storagerg"
     storage_account_name = "storagename"
-    container_name = "tfstatefile"
-    key = "terraform.files"    
+    container_name = "storagecontainer"
+    key = "terraform.tf"
   }
 }
-provider "azurerm" {
-    features {}  
-}
 
-resource "azurerm_resource_group" "myrg" {
-  name = "myrg"
-  location = "eastus1"
+provider "azurerm" {
+  features {
+    
+  }
+}
+resource "azurerm_resource_group" "rg" {
+    name = "rg1"
+    location = "eastus1"
 }
 
 resource "azurerm_virtual_network" "vnet" {
-  name = vnet1
-  location = azurerm_resource_group.myrg
-  address_space = [ "10.25.45.54" ]
-  resource_group_name = azurerm_resource_group.myrg
+    name = "rg1"
+    location = azurerm_resource_group.location
+    address_space = [ "10.25.35.25" ]
+    resource_group_name = azurerm_resource_group.rg
 }

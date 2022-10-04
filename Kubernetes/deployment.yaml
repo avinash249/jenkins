@@ -23,7 +23,7 @@ spec:
         - mountPath: /test-ebs
           name: test-volume
       volumes:
-        -name: test-volume
+      - name: test-volume
         secret:
           secretName: prod-db-secret
           

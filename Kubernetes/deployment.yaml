@@ -22,6 +22,6 @@ spec:
       volumes:
         -name: foo
         secret:
-          secretName: test
+          secretName: prod-db-secret
           
 

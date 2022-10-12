@@ -1,10 +1,10 @@
 pipeline{
     agent any
     stages{
-        stage('Complie Stage'){
+        stage('Build Stage'){
             steps{
                 withMaven(maven: 'maven_3.5.6'){
-                    sh 'maven clean complie'
+                    sh 'maven clean install'
                 }
             }
         }
@@ -15,11 +15,16 @@ pipeline{
                 }
             }
         }
-        stage('Deploy Stage'){
+        stage('Sonar Scanner'){
             steps{
-                withMaven(maven: 'maven_3.5.6'){
-                    sh 'maven deploy'
-                }
+                withSonarQubeEnv('codequality8.xyz.com') {
+                    sh 'mvn clean package sonar:sonar'
+            }
+        }
+        stage('Docker Build'){
+            agent any
+            steps{
+              sh 'docker build -t avinash/ngnix:latest .'
             }
         }
     }

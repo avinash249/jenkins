@@ -1,0 +1,38 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "rg": {
+            "type": "string",
+            "metadata": {
+                "description": "new resource group"
+            }
+        },
+        "location": {
+            "type": "string",
+            "metadata": {
+                "description": "location it has to be deployed"
+            }
+        }
+    },
+    "functions": [],
+    "variables": {
+        "resourceGroups": "rg",
+        "location": "eastus"
+    },
+    "resources": [
+   {
+    "name":"var.name",
+    "type": "Microsoft.Resources/resourceGroups",
+    "apiVersion": "2021-05-01",
+    "location": "eastus",
+    "dependsOn": [
+        
+    ],
+    "tags": {
+        "type": "Dev"
+    }
+   }
+    ],
+    "outputs": {}
+}

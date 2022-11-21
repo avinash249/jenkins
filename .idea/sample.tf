@@ -30,3 +30,12 @@ resource "azurerm_virtual_network" "vnet" {
     address_space = [ "10.25.35.25" ]
     resource_group_name = azurerm_resource_group.rg
 }
+
+module "resource" {
+  count = azurerm_virtual_network.vnet
+  depends_on = [
+    
+  ]
+  for_each = azurerm_resource_group.rg
+  version = "2.0"
+}
